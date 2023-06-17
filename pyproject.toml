@@ -6,7 +6,7 @@ authors = ["Steve Clarke <84364906+s7clarke10@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 pygame = "^2.4.0"
 
 
