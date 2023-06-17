@@ -1,0 +1,16 @@
+{
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "name": "pytetris",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "module": "poetry",
+            "args": [
+                "run",
+                "pytetris"
+            ]
+        }
+    ]
+}
