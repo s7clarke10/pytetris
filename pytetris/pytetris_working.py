@@ -3,6 +3,11 @@ import random
 
 pygame.font.init()
 
+font_path = "pytetris/fonts/PressStart2P-Regular.ttf"
+title_font = pygame.font.Font(font_path, 32)   # Large size for title
+menu_font = pygame.font.Font(font_path, 18)    # Smaller size for menu options
+
+
 # GLOBALS VARS
 s_width = 800
 s_height = 700
@@ -186,8 +191,8 @@ def get_shape():
 
 
 def draw_text_middle(surface, text, size, color):
-    font = pygame.font.SysFont("comicsans", size, bold=True)
-    label = font.render(text, 1, color)
+    # font = pygame.font.SysFont("comicsans", size, bold=True)
+    label = menu_font.render(text, 1, color)
 
     surface.blit(label, (top_left_x + play_width /2 - (label.get_width()/2), top_left_y + play_height/2 - label.get_height()/2))
 
@@ -227,8 +232,8 @@ def clear_rows(grid, locked):
 
 
 def draw_next_shape(shape, surface):
-    font = pygame.font.SysFont('comicsans', 30)
-    label = font.render('Next Shape', 1, (255,255,255))
+    # font = pygame.font.SysFont('comicsans', 30)
+    label = title_font.render('Next Shape', 1, (255,255,255))
 
     sx = top_left_x + play_width + 50
     sy = top_left_y + play_height/2 - 100
@@ -265,21 +270,21 @@ def draw_window(surface, grid, score=0, last_score = 0):
     surface.fill((0, 0, 0))
 
     pygame.font.init()
-    font = pygame.font.SysFont('comicsans', 60)
-    label = font.render('Tetris', 1, (255, 255, 255))
+    # font = pygame.font.SysFont('comicsans', 60)
+    label = title_font.render('Tetris', 1, (255, 255, 255))
 
     surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), 30))
 
     # current score
-    font = pygame.font.SysFont('comicsans', 30)
-    label = font.render('Score: ' + str(score), 1, (255,255,255))
+    # font = pygame.font.SysFont('comicsans', 30)
+    label = title_font.render('Score: ' + str(score), 1, (255,255,255))
 
     sx = top_left_x + play_width + 50
     sy = top_left_y + play_height/2 - 100
 
     surface.blit(label, (sx + 20, sy + 160))
     # last score
-    label = font.render('High Score: ' + last_score, 1, (255,255,255))
+    label = title_font.render('High Score: ' + last_score, 1, (255,255,255))
 
     sx = top_left_x - 200
     sy = top_left_y + 200
