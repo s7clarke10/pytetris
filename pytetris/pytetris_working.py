@@ -4,8 +4,12 @@ import random
 pygame.font.init()
 
 font_path = "pytetris/fonts/PressStart2P-Regular.ttf"
-title_font = pygame.font.Font(font_path, 32)   # Large size for title
-menu_font = pygame.font.Font(font_path, 18)    # Smaller size for menu options
+# Title font (game title)
+title_font = pygame.font.Font(font_path, 28)
+# Label font (score, next shape, high score)
+label_font = pygame.font.Font(font_path, 18)
+# Menu font (menu and in-game prompts)
+menu_font = pygame.font.Font(font_path, 16)
 
 
 # GLOBALS VARS
@@ -233,7 +237,7 @@ def clear_rows(grid, locked):
 
 def draw_next_shape(shape, surface):
     # font = pygame.font.SysFont('comicsans', 30)
-    label = title_font.render('Next Shape', 1, (255,255,255))
+    label = label_font.render('Next Shape', 1, (255,255,255))
 
     sx = top_left_x + play_width + 50
     sy = top_left_y + play_height/2 - 100
@@ -277,14 +281,14 @@ def draw_window(surface, grid, score=0, last_score = 0):
 
     # current score
     # font = pygame.font.SysFont('comicsans', 30)
-    label = title_font.render('Score: ' + str(score), 1, (255,255,255))
+    label = label_font.render('Score: ' + str(score), 1, (255,255,255))
 
     sx = top_left_x + play_width + 50
     sy = top_left_y + play_height/2 - 100
 
     surface.blit(label, (sx + 20, sy + 160))
     # last score
-    label = title_font.render('High Score: ' + last_score, 1, (255,255,255))
+    label = label_font.render('High Score: ' + last_score, 1, (255,255,255))
 
     sx = top_left_x - 200
     sy = top_left_y + 200
